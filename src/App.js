@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+
+import './styles/App.css';
+import React, {useState} from 'react';
+import Counter from './components/counter';
+
 
 function App() {
+  // const [likes, setLike] = useState(0);
+  const [posts, setPosts] = useState([
+    {id:1, title:'HelloWorld', body:'Description'},
+    {id:2, title:'HelloWorld', body:'Description'},
+    {id:3, title:'HelloWorld', body:'Description'}
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={{textAlign: 'center'}}>
+        Hello CodeSandbox
+      </h1>
+     {posts.map(post =>
+      <Counter post={post} key={post.id}/>
+     )}
     </div>
   );
 }
+      
+ 
 
 export default App;
